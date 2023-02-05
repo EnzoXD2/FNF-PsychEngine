@@ -69,6 +69,11 @@ class ResetScoreSubState extends MusicBeatSubstate
 		noText.x += 200;
 		add(noText);
 		updateOptions();
+		
+		#if android
+	        addVirtualPad(LEFT_FULL, A_B_C);
+                addPadCamera();
+                #end
 	}
 
 	override function update(elapsed:Float)
@@ -88,8 +93,13 @@ class ResetScoreSubState extends MusicBeatSubstate
 			updateOptions();
 		}
 		if(controls.BACK) {
-			FlxG.sound.play(Paths.sound('cancelMenu'), 1);
+			#if android
+			flixel.addons.transition.FlxTransitionableState.skipNextTransOut = true;
+			FlxG.resetState();
+			#else
 			close();
+			#end
+			FlxG.sound.play(Paths.sound('cancelMenu'), 1);
 		} else if(controls.ACCEPT) {
 			if(onYes) {
 				if(week == -1) {
