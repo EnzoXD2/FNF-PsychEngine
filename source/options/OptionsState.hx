@@ -37,15 +37,30 @@ class OptionsState extends MusicBeatState
 	function openSelectedSubstate(label:String) {
 		switch(label) {
 			case 'Note Colors':
-				openSubState(new options.NotesSubState());
+				 #if android
+                                 removeVirtualPad();
+                                 #end
+				 openSubState(new options.NotesSubState());
 			case 'Controls':
-				openSubState(new options.ControlsSubState());
+				 #if android
+                                 removeVirtualPad();
+                                 #end
+				 openSubState(new options.ControlsSubState());
 			case 'Graphics':
-				openSubState(new options.GraphicsSettingsSubState());
+				 #if android
+                                 removeVirtualPad();
+                                 #end
+				 openSubState(new options.GraphicsSettingsSubState());
 			case 'Visuals and UI':
-				openSubState(new options.VisualsUISubState());
+				 #if android
+                                 removeVirtualPad();
+                                 #end
+				 openSubState(new options.VisualsUISubState());
 			case 'Gameplay':
-				openSubState(new options.GameplaySettingsSubState());
+				 #if android
+                                 removeVirtualPad();
+                                 #end
+				 openSubState(new options.GameplaySettingsSubState());
 			case 'Adjust Delay and Combo':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
 		}
@@ -85,6 +100,10 @@ class OptionsState extends MusicBeatState
 
 		changeSelection();
 		ClientPrefs.saveSettings();
+		
+		#if android
+		addVirtualPad(UP_DOWN, A_B_C);
+		#end
 
 		super.create();
 	}
@@ -112,7 +131,16 @@ class OptionsState extends MusicBeatState
 		if (controls.ACCEPT) {
 			openSelectedSubstate(options[curSelected]);
 		}
-	}
+		
+		#if android
+                if (virtualPad.buttonC.justPressed) {
+                #if android
+                removeVirtualPad();
+                #end
+                openSubState(new android.AndroidControlsSubState());
+            }
+            #end
+	    }
 	
 	function changeSelection(change:Int = 0) {
 		curSelected += change;
