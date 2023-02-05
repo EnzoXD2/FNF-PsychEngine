@@ -193,7 +193,7 @@ class WeekData {
 				var weekFile:WeekData = new WeekData(week, weekToCheck);
 				if(i >= originalLength)
 				{
-					#if MODS_ALLOWED
+					#if desktop
 					weekFile.folder = directory.substring(Paths.mods().length, directory.length-1);
 					#end
 				}
