@@ -187,8 +187,12 @@ class Paths
 	}
 	inline static public function lua(key:String, ?library:String)
 	{
-		return getPath('$key.lua', TEXT, library);
+		return Main.path + getPath('$key.lua', TEXT, library);
 	}
+	inline static public function luaAsset(key:String, ?library:String)
+        {
+		return getPath('$key.lua', TEXT, library);
+        }
 
 	static public function video(key:String)
 	{
@@ -389,7 +393,7 @@ class Paths
 		// trace(gottenPath);
 		if(!currentTrackedSounds.exists(gottenPath))
 		#if MODS_ALLOWED
-			currentTrackedSounds.set(gottenPath, Sound.fromFile('./' + gottenPath));
+			currentTrackedSounds.set(gottenPath, Sound.fromFile(gottenPath));
 		#else
 		{
 			var folder:String = '';
