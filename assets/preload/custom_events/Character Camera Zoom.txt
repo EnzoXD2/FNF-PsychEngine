@@ -1,0 +1,8 @@
+Set Stage Zoom for individual characters!
+
+
+Value 1: BF Zoom
+
+Value 2: Dad Zoom
+
+Reusable event.
