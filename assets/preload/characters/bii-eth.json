@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-47,
+				0
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "down angry",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "idle-alt",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				90,
+				86
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "left angry",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-100,
+				38
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "right angry",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-40,
+				99
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "up angry",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bf_pissy",
+	"position": [
+		0,
+		250
+	],
+	"healthicon": "bfpisser",
+	"flip_x": true,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		70,
+		20
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
